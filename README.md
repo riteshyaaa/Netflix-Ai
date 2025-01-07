@@ -1,16 +1,37 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-
 
 
  # Netflix-Ai
 
 1. Project setup using vite 
 2. tailwind setup done
+3. Header
+4. Routing of App
+5. Login Form
+6. Sign up Form
+7. Form Validation
+8. useRef Hook
+9.Firebase Authentication
+10. deploying our app to production 
+11.create signUp user account  
+
+
+
+
+
+
+
+# Features
+
+Login/Sign Up
+     - Sign In /Sign up Form
+     - redirect to Browse Page
+Browse (after authentication)
+     - Header
+     - Main Movie
+             - Tailer in Background
+             - Title & Description
+             - MovieSuggestions
+             - MovieLists * N
+NetflixGPT
+    - Search Bar
+    - Movie Suggestions
