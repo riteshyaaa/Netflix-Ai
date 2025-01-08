@@ -2,15 +2,21 @@ import React from "react";
 import Header from "./Header";
 import { checkValidDate } from "../utils/validate";
 import { useState, useRef } from "react";
-import { auth, app } from "../utils/firebase";
+import { auth } from "../utils/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
+import { addUser } from "../utils/userSlice";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const [isSignIn, setisSignIn] = useState(true);
   const [errorMessage, seterrorMessage] = useState(null);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   //For reference we use the useRef hook
   const email = useRef(null);
   const password = useRef(null);
@@ -32,14 +38,33 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          // ...
-          console.log(user)
+          updateProfile(user, {
+            displayName: "name.current.value",
+            photoURL: "https://avatars.githubusercontent.com/u/172425050?v=4",
+          })
+            .then(() => {
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+
+              navigate("/Browse");
+            })
+            .catch((error) => {
+              seterrorMessage(error.message);
+            });
+          //
+          // console.log(user)
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          // ..
-          console.log(errorMessage+"-"+errorCode)
+          seterrorMessage(errorMessage + "-" + errorCode);
         });
     } else {
       // sign In logic
@@ -47,18 +72,17 @@ const Login = () => {
         auth,
         email.current.value,
         password.current.value
-       
       )
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          // ...
+          navigate("/Browse");
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          // console.log(errorCode + "-" + errorMessage);
+          seterrorMessage(errorCode + "-" + errorMessage);
         });
     }
   };

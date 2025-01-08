@@ -13,8 +13,10 @@
 9.Firebase Authentication
 10. deploying our app to production 
 11.create signUp user account  
-
-
+12.Implement sign In  user api
+13.created Redux store with userSlice 
+14.Implemented Sign Out 
+14.upadted user profile with firebase authentication
 
 
 
