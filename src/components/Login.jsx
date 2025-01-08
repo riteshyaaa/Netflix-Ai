@@ -2,8 +2,9 @@ import React from 'react'
 import Header from './Header'
 import { checkValidDate } from '../utils/validate'
 import { useState,useRef } from 'react'
-import { auth} from '../utils/auth'
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import{auth, app}  from '../utils/firebase';
+import {  createUserWithEmailAndPassword } from "firebase/auth";
+
 
 const Login = () => {
   const [isSignIn, setisSignIn] = useState(true)
@@ -17,28 +18,26 @@ const Login = () => {
     //vaildation condition 
      const message = checkValidDate(email.current.value, password.current.value)
      seterrorMessage(message)
-       if(message) return;
+     if(message) return;
 
-      // sign up 
-      if(!isSignIn){
-        createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
+     //Sign Up
     
+     if(!isSignIn) {
+      createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+  .then((userCredential) => {
+    // Signed up 
     const user = userCredential.user;
-    console.log(user)
     // ...
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-
-   seterrorMessage(errorMessage+"-"+errorCode)
-   
+    // ..
   });
-  }
-  else {
-     //sign In
-
+     }
+     else {
+      // sign in
+     }
   }
   const toggleSignIn = () => {
     setisSignIn(!isSignIn)
@@ -93,5 +92,5 @@ const Login = () => {
     </div>
   )
 }
-}
-export default Login
+
+export default Login;
