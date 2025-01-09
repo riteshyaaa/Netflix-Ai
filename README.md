@@ -20,6 +20,7 @@
 15.  BugFix: Sign up user displayName and profile picture update
 16. BugFix: if the user is not logged in Redirect /browse to Login Page and vice-versa
 17. Unsubscibed to the onAuthStateChanged callback
+18. add hardcoded vlaue in constants file
 
 
 

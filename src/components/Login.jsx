@@ -11,7 +11,7 @@ import {
 import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
+import {USER_AVATER} from "../utils/constent";
 const Login = () => {
   const [isSignIn, setisSignIn] = useState(true);
   const [errorMessage, seterrorMessage] = useState(null);
@@ -40,7 +40,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: "name.current.value",
-            photoURL: "https://avatars.githubusercontent.com/u/172425050?v=4",
+            photoURL: USER_AVATER
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -53,7 +53,7 @@ const Login = () => {
                 })
               );
 
-              navigate("/Browse");
+              
             })
             .catch((error) => {
               seterrorMessage(error.message);
@@ -77,7 +77,7 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          navigate("/Browse");
+          
         })
         .catch((error) => {
           const errorCode = error.code;
