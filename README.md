@@ -21,6 +21,8 @@
 16. BugFix: if the user is not logged in Redirect /browse to Login Page and vice-versa
 17. Unsubscibed to the onAuthStateChanged callback
 18. add hardcoded vlaue in constants file
+19.Register tmdb api with vpn and create a app & get access token 
+20. get data from Tmdb Now playing 
 
 
 
