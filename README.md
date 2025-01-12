@@ -23,7 +23,14 @@
 18. add hardcoded vlaue in constants file
 19.Register tmdb api with vpn and create a app & get access token 
 20. get data from Tmdb Now playing 
-
+21. Custom hook for Now playing movies 
+22. Create a moviesSlice 
+23. update store with movies data 
+24. Planning for mainContainer and secondary conatainer 
+25. Fetch Data for Trailer videos 
+26. update Store with Trailer video Data 
+27.Embedded the youtube video and make it autoPlay and  mute 
+28. Tailwind Classes to amke Main Container look awesome 
 
 
 
