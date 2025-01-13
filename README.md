@@ -37,6 +37,7 @@
     TMDB Image CDN URL
     Made the Browsre page amazing with Tailwind CSS
     usePopularMovies Custom hook
+    Add GPT search toggle functionality
 
 
 
