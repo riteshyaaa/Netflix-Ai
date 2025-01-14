@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
 import { onAuthStateChanged } from "firebase/auth";
 import { addtoggleGptSearch } from "../utils/gptSlice";
-import {changeLangauge} from "../utils/configLanguage"
+import { changeLangauge } from "../utils/configLanguage";
 const Header = () => {
   const Navigate = useNavigate();
   const dispatch = useDispatch();
@@ -50,17 +50,19 @@ const Header = () => {
   };
 
   const handleLanguage = (e) => {
-    dispatch(changeLangauge(e.target.value))
-   }
+    dispatch(changeLangauge(e.target.value));
+  };
   return (
     <div className="absolute px-8 w-screen py-2 bg-gradient-to-b from-black z-10 flex justify-between">
       <img className="w-44 " src={LOGO} alt="Logo" />
       {user && (
         <div className="flex p-2 ">
-          <select className="p-2 m-6 bg-gray-900 text-white text-lg rounded-md" onChange={handleLanguage}>
+          <select
+            className="p-2 m-6 bg-gray-900 text-white text-lg rounded-md"
+            onChange={handleLanguage}
+          >
             {SUPPORTED_LANGUAGES.map((lang) => (
-              <option key  ={lang.identifier}value={lang.identifier}>
-               
+              <option key={lang.identifier} value={lang.identifier}>
                 {lang.name}
               </option>
             ))}
