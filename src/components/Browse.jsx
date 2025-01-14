@@ -4,15 +4,28 @@ import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import usePopularMovies from "../hooks/usePopularMovies";
+
+import { useSelector } from "react-redux";
+import GptSearchPage from "./GptSearchPage";
 const Browse = () => {
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
+
   // Using the custom hook to fetch the now playing movies.
-  useNowPlayingMovies()
+  useNowPlayingMovies();
   usePopularMovies();
-  return <div>
-    <Header/>
-    <MainContainer />
-    <SecondaryContainer /> 
-     {/* 
+  return (
+    <div>
+      <Header />
+      {showGptSearch ? (
+        <GptSearchPage />
+      ) : (
+        <>
+          {" "}
+          <MainContainer />
+          <SecondaryContainer />{" "}
+        </>
+      )}
+      {/* 
       - MainContainer
          - videoBackground
          - videoTitle
@@ -21,7 +34,8 @@ const Browse = () => {
          - movieCard * n
            
       */}
-  </div>;
+    </div>
+  );
 };
 
 export default Browse;

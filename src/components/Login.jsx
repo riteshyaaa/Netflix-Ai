@@ -11,7 +11,7 @@ import {
 import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {USER_AVATER} from "../utils/constent";
+import {BG_URL, USER_AVATER} from "../utils/constent";
 const Login = () => {
   const [isSignIn, setisSignIn] = useState(true);
   const [errorMessage, seterrorMessage] = useState(null);
@@ -94,7 +94,7 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
-          src=" https://assets.nflxext.com/ffe/siteui/vlv3/fc164b4b-f085-44ee-bb7f-ec7df8539eff/d23a1608-7d90-4da1-93d6-bae2fe60a69b/IN-en-20230814-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+          src={BG_URL}
           alt="BG_Img"
         />
       </div>
