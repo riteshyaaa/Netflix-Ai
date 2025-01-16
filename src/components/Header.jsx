@@ -57,7 +57,7 @@ const Header = () => {
       <img className="w-44 " src={LOGO} alt="Logo" />
       {user && (
         <div className="flex p-2 ">
-          <select
+          { showGptSearch && (<select
             className="p-2 m-6 bg-gray-900 text-white text-lg rounded-md"
             onChange={handleLanguage}
           >
@@ -66,7 +66,7 @@ const Header = () => {
                 {lang.name}
               </option>
             ))}
-          </select>
+          </select>)}
           <button
             className="py-2 px-4 mx-4 my-6 bg-purple-800 text-white rounded-lg"
             onClick={handleGptSearchClick}
